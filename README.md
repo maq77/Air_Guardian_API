@@ -2,9 +2,9 @@
 
 **AI-Powered Air Quality Intelligence for Everyone**
 
-[![NASA Space Apps Challenge 2024](https://img.shields.io/badge/NASA%20Space%20Apps-2024-blue)](https://www.spaceappschallenge.org/)
+[![NASA Space Apps Challenge 2025](https://img.shields.io/badge/NASA%20Space%20Apps-2024-blue)](https://www.spaceappschallenge.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.5+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
 ---
 
