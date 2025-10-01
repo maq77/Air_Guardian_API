@@ -211,7 +211,7 @@ airguardian-api/
 
 ---
 
-## 📚 Data Sources
+##  Data Sources
 
 ### NASA TEMPO
 - High-resolution NO2 and aerosol measurements
@@ -301,7 +301,7 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **NASA** for TEMPO satellite data and Earthdata platform
 - **OpenAQ** for open air quality data
@@ -310,15 +310,15 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 ---
 
-## 📞 Contact
+##  Contact
 
-**Project Link:** https://github.com/your-team/airguardian-api
+**Project Link:** https://github.com/maq77/Air_Guardian_API
 
-**Demo Video:** [YouTube Link]
+**Demo Video:** [YouTube Link] (soon)
+ 
+**Presentation:** [Slides Link] (soon)
 
-**Presentation:** [Slides Link]
-
-**Email:** airguardian.team@example.com
+**Email:** maqmohamed8@gmail.com
 
 ---
 
@@ -330,7 +330,7 @@ If you find AirGuardian useful, please star this repository to help others disco
 
 <div align="center">
 
-**Built with ❤️ for NASA Space Apps Challenge 2024**
+**Built with ❤️ for NASA Space Apps Challenge 2025**
 
 *From Earthdata to Action - Transforming satellite data into life-saving insights*
 
