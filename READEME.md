@@ -32,8 +32,12 @@ Three AI models delivered as REST APIs:
 
 ```bash
 # Clone repository
-git clone https://github.com/your-team/airguardian-api.git
+git clone https://github.com/maq77/Air_Guardian_API.git
 cd airguardian-api
+
+# Create Virtual Environment
+python -m venv venv
+venv\Scripts\activate  # Linux: source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
@@ -333,5 +337,6 @@ If you find AirGuardian useful, please star this repository to help others disco
 **Built with ❤️ for NASA Space Apps Challenge 2024**
 
 *From Earthdata to Action - Transforming satellite data into life-saving insights*
+
 
 </div>
