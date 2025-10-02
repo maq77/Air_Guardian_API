@@ -146,11 +146,12 @@ def fetch_real_training_data(city: str = "Cairo", days: int = 90) -> pd.DataFram
         print(f"City {city} not found in settings")
         return pd.DataFrame()
     
+    cities = [
+    {"name": "Cairo", "lat": 30.0444, "lon": 31.2357, "country": "EG"},
+    ]
     # Fetch training dataset
     df = fetcher.fetch_training_dataset(
-        city=city,
-        lat=city_info['lat'],
-        lon=city_info['lon'],
+        cities,
         days=days
     )
     

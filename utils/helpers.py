@@ -3,10 +3,49 @@ Helper Functions for AirGuardian API
 Utility functions used across the application
 """
 
+from fastapi import HTTPException
 import numpy as np
 from datetime import datetime
 from typing import Union, List
 from utils.constants import AQI_BREAKPOINTS, RISK_LEVELS, HEALTH_MESSAGES
+from data.fetcher import AirQualityDataFetcher
+
+fetcher = AirQualityDataFetcher()
+
+CITY_COORDINATES = {
+    'cairo': {'lat': 30.0444, 'lon': 31.2357},
+    'alexandria': {'lat': 31.2001, 'lon': 29.9187},
+    'giza': {'lat': 30.0131, 'lon': 31.2089},
+    'aswan': {'lat': 24.0889, 'lon': 32.8998},
+    'luxor': {'lat': 25.6872, 'lon': 32.6396},
+    'port said': {'lat': 31.2653, 'lon': 32.3019},
+    'suez': {'lat': 29.9668, 'lon': 32.5498},
+    'mansoura': {'lat': 31.0409, 'lon': 31.3785},
+    'tanta': {'lat': 30.7865, 'lon': 31.0004},
+    'asyut': {'lat': 27.1809, 'lon': 31.1837}
+}
+
+def get_lat_lon(city: str) -> tuple:
+    city_normalized = city.lower().strip()
+    
+    if city_normalized in CITY_COORDINATES:
+        coords = CITY_COORDINATES[city_normalized]
+        print(f"[INFO] Using hardcoded coordinates for {city}: {coords['lat']}, {coords['lon']}")
+        return coords['lat'], coords['lon']
+    
+    try:
+        data = fetcher.geocode_city(city)
+        if data:
+            print(f"[INFO] Using geocoded coordinates for {city}: {data['lat']}, {data['lon']}")
+            return data['lat'], data['lon']
+    except Exception as e:
+        print(f"[WARNING] Geocoding failed for {city}: {e}")
+    
+    raise HTTPException(
+        status_code=404, 
+        detail=f"City '{city}' not found in database or geocoding service"
+    )
+
 
 
 def calculate_aqi_from_pm25(pm25: float) -> int:
