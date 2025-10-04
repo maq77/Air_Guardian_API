@@ -44,6 +44,8 @@ python main.py
 
 **API runs at:** `http://localhost:8000`  
 **Interactive docs:** `http://localhost:8000/docs`
+**Live Demo:** `http://localhost:8000/frontend/demov2`
+
 
 ---
 
