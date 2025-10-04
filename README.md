@@ -8,8 +8,6 @@
 
 ---
 
-# Be aware of virtual environment 
-
 ## 🎯 Challenge: From Earthdata to Action
 
 AirGuardian transforms NASA's Earth observation data into actionable insights through AI-powered APIs. Instead of building another standalone app, we provide the **AI brain** that powers air quality intelligence across any platform.
@@ -324,6 +322,11 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 ---
 
+## Notice
+
+**Be aware of virtual environment **
+
+---
 ## 🌟 Star Us!
 
 If you find AirGuardian useful, please star this repository to help others discover it!
