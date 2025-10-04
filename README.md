@@ -108,7 +108,7 @@ GET /api/v1/policy-recommendations/{location}
 
 ![AirGuardian Demo](demo-screenshot.png)
 
-**Try it:** Open `demo_frontend.html` in your browser
+**Try it:** Open `frontend/demov2.html` in your browser 
 
 ---
 
