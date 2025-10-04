@@ -1,38 +1,97 @@
-# AirGuardian API Dependencies
+#####Air Guardian Depend....
+# Core Web Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
 
-# API Framework
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-pydantic==2.5.0
-
-# Data Processing
-numpy==1.24.3
-pandas==2.0.3
+# HTTP Client & API Requests
+httpx==0.26.0
 requests==2.31.0
+aiohttp==3.9.1
 
-# Machine Learning (for production models)
-scikit-learn==1.3.2
+# Machine Learning & Data Science
+scikit-learn==1.4.0
 xgboost==2.0.3
-tensorflow==2.15.0  # or pytorch
-joblib==1.3.2
+tensorflow==2.15.0
+keras==2.15.0
+numpy==1.26.3
+pandas==2.1.4
+scipy==1.11.4
 
-# Data Sources
-openaq-api==0.0.1
-netCDF4==1.6.5  # For NASA TEMPO data
+# Time Series & Forecasting
+statsmodels==0.14.1
+prophet==1.1.5
 
-# Time series
-statsmodels==0.14.0
+# Data Visualization
+matplotlib==3.8.2
+seaborn==0.13.1
+plotly==5.18.0
 
-# Visualization (for notebooks)
-matplotlib==3.8.0
-seaborn==0.13.0
+# API Documentation
+python-multipart==0.0.6
 
-# Testing
-pytest==7.4.3
-httpx==0.25.1
-
-# Environment
+# Environment & Configuration
 python-dotenv==1.0.0
 
-# Documentation
-python-multipart==0.0.6
+# Data Validation & Processing
+jsonschema==4.20.0
+pytz==2023.3.post1
+
+# Logging & Monitoring
+loguru==0.7.2
+
+# Testing
+pytest==7.4.4
+pytest-asyncio==0.23.3
+pytest-cov==4.1.0
+
+# Code Quality
+black==23.12.1
+flake8==7.0.0
+pylint==3.0.3
+
+# Database & Caching
+redis==5.0.1
+pymongo==4.6.1
+cachetools==5.3.2
+
+# Job Scheduling
+apscheduler==3.10.4
+
+# Geospatial
+geopy==2.4.1
+
+# Date & Time Utilities
+python-dateutil==2.8.2
+
+# CORS Support
+fastapi-cors==0.0.6
+
+# Model Serialization
+joblib==1.3.2
+pickle5==0.0.11
+
+# NASA TEMPO & Earth Data Access
+earthaccess==0.8.2
+netCDF4==1.6.5
+h5py==3.10.0
+xarray==2024.1.0
+
+# OpenAQ API Client
+openaq==2.0.1
+
+# Weather Data
+pyowm==3.3.0
+
+# Performance & Optimization
+orjson==3.9.12
+
+# Security
+cryptography==41.0.7
+
+# Rate Limiting
+slowapi==0.1.9
+
+# Monitoring & Health Checks
+prometheus-fastapi-instrumentator==6.1.0
