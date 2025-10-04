@@ -11,7 +11,6 @@ from datetime import datetime, timedelta
 import warnings
 warnings.filterwarnings('ignore')
 
-# Add parent directory to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from data.fetcher import AirQualityDataFetcher
@@ -579,7 +578,6 @@ if __name__ == "__main__":
     print("\nThis ensures models work correctly for ALL Egyptian cities!")
     print("="*70)
     
-    # FIXED: Run training with correct syntax
     main(
         use_real_data=args.real_data,
         days=args.days

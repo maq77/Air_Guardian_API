@@ -29,15 +29,12 @@ def get_forecast(location: str, hours: int = Query(24, enum=[1, 6, 24])):
     try:
         forecaster = loaded_models[hours]
         
-        # Step 1: Get coordinates
         lat, lon = get_lat_lon(location)
         
-        # Step 2: Fetch Open-Meteo forecast
         forecast_data = fetcher.fetch_openmeteo_forecast(lat, lon, days=2)
         if not forecast_data:
             raise HTTPException(status_code=502, detail="Failed to fetch forecast from Open-Meteo")
         
-        # Step 3: Convert to DataFrame
         df = pd.DataFrame(forecast_data)
         df['timestamp'] = pd.to_datetime(df['timestamp'])
         df['city'] = location
@@ -45,9 +42,7 @@ def get_forecast(location: str, hours: int = Query(24, enum=[1, 6, 24])):
         print("Forecast DataFrame shape:", df.shape)
         print("Forecast DataFrame columns:", df.columns.tolist())
         print("First few rows:\n", df.head())
-        
-        # Step 4: Extract CURRENT CONDITIONS as a dictionary (NOT the whole DataFrame!)
-        # Use the first row or most recent data point
+ 
         current_row = df.iloc[0] if len(df) > 0 else {}
         
         current_data = {
@@ -61,10 +56,8 @@ def get_forecast(location: str, hours: int = Query(24, enum=[1, 6, 24])):
             'city': location
         }
         
-        # Step 5: Run model prediction with the DICT, not DataFrame
         predictions = forecaster.forecast(current_data, hours=hours)
         
-        # Step 6: Format API response
         forecasts = []
         for pred in predictions:
             forecasts.append(AirQualityForecast(

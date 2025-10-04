@@ -890,13 +890,11 @@ fetch('http://localhost:8000/api/v1/policy-recommendations/Cairo')
         }
         createStars();
 
-        // Preloader animation
         window.addEventListener('load', function() {
             setTimeout(function() {
                 const preloader = document.getElementById('preloader');
                 preloader.classList.add('fade-out');
                 
-                // Remove from DOM after fade out
                 setTimeout(function() {
                     preloader.style.display = 'none';
                 }, 500);

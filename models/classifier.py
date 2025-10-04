@@ -83,23 +83,19 @@ class RiskClassifier:
         """
         print("\nTraining ML-based risk classifier...")
         
-        # Create category labels
         df['category'] = df['aqi'].apply(self._aqi_to_category_number)
         
-        # Features
         feature_cols = ['pm25', 'no2', 'temperature', 'humidity', 'wind_speed']
         available_cols = [col for col in feature_cols if col in df.columns]
         
         X = df[available_cols]
         y = df['category']
         
-        # Split
         from sklearn.model_selection import train_test_split
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.2, random_state=42, stratify=y
         )
         
-        # Train
         self.model = GradientBoostingClassifier(
             n_estimators=100,
             learning_rate=0.1,
@@ -109,7 +105,6 @@ class RiskClassifier:
         
         self.model.fit(X_train, y_train)
         
-        # Evaluate
         y_pred = self.model.predict(X_test)
         self.accuracy = accuracy_score(y_test, y_pred)
         
@@ -132,7 +127,6 @@ class RiskClassifier:
         if self.model is None:
             raise ValueError("ML model not trained!")
         
-        # Prepare features
         feature_values = [
             features.get('pm25', 0),
             features.get('no2', 0),
@@ -141,11 +135,9 @@ class RiskClassifier:
             features.get('wind_speed', 3)
         ]
         
-        # Predict
         category_num = self.model.predict([feature_values])[0]
         risk_level = RISK_LEVELS[category_num]
         
-        # Get corresponding AQI (approximate)
         aqi = features.get('aqi', features.get('pm25', 0) * 1.2)
         category_key = get_risk_category_key(aqi)
         messages = HEALTH_MESSAGES[category_key]
@@ -259,12 +251,10 @@ class HealthAdvisor:
         """
         base_classification = self.classifier.classify(aqi=aqi)
         
-        # Check if user is in sensitive group
         is_sensitive = self._is_sensitive_group(user_profile)
         
-        # Adjust thresholds for sensitive groups
         if is_sensitive:
-            adjusted_aqi = aqi * 1.2  # More conservative for sensitive groups
+            adjusted_aqi = aqi * 1.2  
             adjusted_classification = self.classifier.classify(aqi=adjusted_aqi)
             
             advice = {
@@ -330,7 +320,6 @@ class HealthAdvisor:
             'cycling': aqi <= 100,
         }
         
-        # Adjust for high activity level
         if activity_level == 'high' and aqi <= 150:
             recommendations['light_exercise'] = True
         
